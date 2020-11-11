@@ -12,11 +12,12 @@ import pulp
 prob = pulp.LpProblem("Problema de distribución de cerveza", pulp.LpMinimize)
 
 # Creamos lista de cervecerías o nodos de oferta
-cervecerias = ["Cervecería A", "Cervercería B"]
+cervecerias = ["Cervecería A", "Cervercería B", "Cervecería C"]
 
 # diccionario con la capacidad de oferta de cada cerveceria
 oferta = {"Cervecería A": 1000,
-          "Cervercería B": 4000}
+          "Cervercería B": 2000,
+          "Cervecería C": 2500}
 
 # Creamos la lista de los bares o nodos de demanda
 bares = ["Bar 1", "Bar 2", "Bar 3", "Bar 4", "Bar 5"]
@@ -30,9 +31,10 @@ demanda = {"Bar 1":500,
 
 # Lista con los costos de transporte de cada nodo
 costos = [   #Bares
-         #100 200 300 400 500
-         [200,400,500,200,100],#A   Cervecerías
-         [300,100,300,200,300] #B
+         #1 2 3 4 5
+         [2,4,5,2,1],#A   Cervecerías
+         [3,1,3,2,3],#B
+         [2,6,4,1,3]#C
          ]
 
 # Convertimos los costos en un diccionario de PuLP
@@ -81,3 +83,8 @@ print()
 
 # Imprimimos el valor óptimo de la función objetivo   
 print("Costo total de transporte = {}".format(prob.objective.value()))
+
+
+print(str(500*4 + 500*2 + 400 + 1600*3 + 200*4 + 200 + 700*3))
+
+
