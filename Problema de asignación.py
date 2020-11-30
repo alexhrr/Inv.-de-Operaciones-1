@@ -18,5 +18,9 @@ g = {
 #Se asigna la tarea a cada empleado, cuyo costo es MENOR
 res = algorithm.find_matching(g, matching_type = 'min', return_type = 'list' )
 
+#Encontramos el costo mínimo
+cost =  algorithm.find_matching(g, matching_type = 'min', return_type = 'total' )
+
 #Imprimimos los resultados
 print(res)
+print('La empresa pagaría, según esta asignación, ' + str(cost) + ' horas')
